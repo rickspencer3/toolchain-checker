@@ -1,0 +1,17 @@
+{
+  "scan_timestamp": "2026-05-02T08:44:22.131385",
+  "attack": "pytorch-lightning 2.6.2, 2.6.3",
+  "ai_repos_scanned": [
+    "SUSE/suse-ai-stack",
+    "SUSE/suse-ai-observability-extension",
+    "SUSE/doc-suse-ai",
+    "SUSE/suse-ai-up",
+    "SUSE/suse-ai-deployer"
+  ],
+  "ai_repos_affected": [],
+  "general_repos_scanned": [],
+  "general_repos_affected": [],
+  "persistence_hooks_found": [],
+  "total_repos_checked": 5,
+  "total_affected": 0
+}

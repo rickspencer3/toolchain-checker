@@ -1,0 +1,954 @@
+{
+  "openSUSE:Factory": [
+    {
+      "project": "openSUSE:Factory",
+      "package": "container-diff",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "container-diff.spec"
+      ]
+    }
+  ],
+  "openSUSE:Leap:15.5": [],
+  "openSUSE:Leap:15.6": [],
+  "openSUSE:Leap:16.0": [
+    {
+      "project": "openSUSE:Leap:16.0",
+      "package": "python-PyPDF2",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "python-PyPDF2.spec"
+      ]
+    }
+  ],
+  "openSUSE:Tumbleweed": [],
+  "devel:languages:nodejs": [
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-Base64",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-Base64.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-absolute-path",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-absolute-path.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-accepts",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-accepts.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-acorn-globals",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-acorn-globals.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-angular",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-angular.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-angular-animate",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-angular-animate.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-angular-google-chart",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-angular-google-chart.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-angular-moment",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-angular-moment.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-angular-route",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-angular-route.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-archiver",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-archiver.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-argparser",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-argparser.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-argsparser",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-argsparser.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-ast-types",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-ast-types.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-async-stacktrace",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-async-stacktrace.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-atob",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-atob.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-azure-rm-website",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-azure-rm-website.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-azure-storage-legacy",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-azure-storage-legacy.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-base62",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-base62.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-base64-js",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-base64-js.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-bindings",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-bindings.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-boolbase",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-boolbase.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-bootswatch",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-bootswatch.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-bops",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-bops.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-buffer-crc32",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-buffer-crc32.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-buffer-equal",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-buffer-equal.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-bunker",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-bunker.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-burrito",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-burrito.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-channels",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-channels.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-character-parser",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-character-parser.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-charm",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-charm.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cheerio",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cheerio.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-coa",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-coa.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-coffee-script-redux",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-coffee-script-redux.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-coffeestack",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-coffeestack.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-collections",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-collections.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-commander2",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-commander2.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-common",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-common.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-compress-commons",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-compress-commons.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-connect-prism",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-connect-prism.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-constantinople",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-constantinople.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-contextify",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-contextify.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cookie",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cookie.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cookie-parser",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cookie-parser.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cookie-signature",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cookie-signature.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-crc32-stream",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-crc32-stream.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cscodegen",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cscodegen.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cson-safe",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cson-safe.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-css",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-css.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-css-select",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-css-select.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cssom",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cssom.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-cssstyle",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-cssstyle.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-deep-equal",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-deep-equal.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-di",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-di.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-difflet",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-difflet.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-director",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-director.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-dom-serializer",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-dom-serializer.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-ejs",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-ejs.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-electron",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-electron.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-emojione",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-emojione.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-engine.io",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-engine.io.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-engine.io-parser",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-engine.io-parser.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-envify",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-envify.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-escodegen",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-escodegen.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-esmangle",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-esmangle.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-esprima-fb",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-esprima-fb.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-esshorten",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-esshorten.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-eventemitter3",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-eventemitter3.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-expresso",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-expresso.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-faye-websocket",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-faye-websocket.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-fileset",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-fileset.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-formidable",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-formidable.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-forwarded-for",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-forwarded-for.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-fs.extra",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-fs.extra.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-grunt-cli",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-grunt-cli.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-grunt-connect-prism",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-grunt-connect-prism.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-grunt-contrib-watch",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-grunt-contrib-watch.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-grunt-rpm",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-grunt-rpm.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-guid",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-guid.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-harmony-collections",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-harmony-collections.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-hooker",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-hooker.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-http-proxy",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-http-proxy.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-isbinaryfile",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-isbinaryfile.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jasmine-growl-reporter",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jasmine-growl-reporter.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jasmine-node",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jasmine-node.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jasmine-reporters",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jasmine-reporters.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jscoverage",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jscoverage.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jsdom",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jsdom.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-jstransform",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-jstransform.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-lazystream",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-lazystream.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-lodash-node",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-lodash-node.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-monocle",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-monocle.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-negotiator",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-negotiator.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-nextback",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-nextback.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-node-int64",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-node-int64.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-nomnom",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-nomnom.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-noptify",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-noptify.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-nth-check",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-nth-check.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-nwmatcher",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-nwmatcher.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-oniguruma",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-oniguruma.spec"
+      ]
+    },
+    {
+      "project": "devel:languages:nodejs",
+      "package": "nodejs-optimist",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "nodejs-optimist.spec"
+      ]
+    }
+  ],
+  "devel:languages:python": [
+    {
+      "project": "devel:languages:python",
+      "package": "python-Glances",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "python-Glances.spec"
+      ]
+    }
+  ],
+  "devel:languages:python3": [],
+  "server:Rancher": [],
+  "Cloud:Tools": [],
+  "Virtualization:containers": [
+    {
+      "project": "Virtualization:containers",
+      "package": "container-diff",
+      "findings": [],
+      "status": "clean",
+      "files_checked": [
+        "container-diff.spec"
+      ]
+    }
+  ]
+}

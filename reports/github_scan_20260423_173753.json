@@ -1,0 +1,472 @@
+{
+  "SUSE": [
+    {
+      "repo": "SUSE/suse-migration-services",
+      "branches_checked": [
+        "boottest",
+        "bsc1219004test",
+        "bsc1219004",
+        "bsc1222258fix",
+        "bsc1222258isobuildtest",
+        "bsc1222258sle15sp3",
+        "bsc1222258",
+        "bsc1249593",
+        "check_wicked_service",
+        "clemens_network_magic"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/kernel-source",
+      "branches_checked": [
+        "SL-16.0",
+        "SL-16.1",
+        "SLE11-SP4-LTSS",
+        "SLE12-SP5",
+        "SLE15-SP3-LTSS",
+        "SLE15-SP3-RT-LTSS",
+        "SLE15-SP4-LTSS",
+        "SLE15-SP4-RT-LTSS",
+        "SLE15-SP5-LTSS",
+        "SLE15-SP5-RT-LTSS"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/BCI-dockerfile-generator",
+      "branches_checked": [
+        "5-1423",
+        "6-1050",
+        "6-1423",
+        "6-1429",
+        "6-1443",
+        "6-1454",
+        "6-1602",
+        "6-2085",
+        "6-2199",
+        "6-2231"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/authentik",
+      "branches_checked": [
+        "feature/do-not-show-blank-relogin",
+        "feature/override-scim-config",
+        "feature/qualified-compat",
+        "feature/qualified-scim",
+        "ldap_jit_auth",
+        "load_suse_authn_req_parser",
+        "main",
+        "saml_processor_round_2",
+        "saml_processor_round_3",
+        "scim_patch_schema_missing"
+      ],
+      "findings": [],
+      "status": "clean"
+    }
+  ],
+  "rancher": [
+    {
+      "repo": "rancher/dashboard",
+      "branches_checked": [
+        "2.7-head",
+        "2.10-pin-actions",
+        "14252-disabled-radiogroup-checkboxes",
+        "14255-aria-required",
+        "ai-extension-shell-api-compatible-dev",
+        "alex-dev",
+        "alex-rancher-as-oidc-provider-dev",
+        "as-prompt-modal-action-based-modals",
+        "as-prompt-modal-add-repo-dev-load-ext-modals",
+        "as-prompt-modal-catalog-install-uninstall-ext-modals"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/systemd-node",
+      "branches_checked": [
+        "master"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-docs",
+      "branches_checked": [
+        "copilot/clarify-cluster-management-capabilities",
+        "gh-pages",
+        "main",
+        "v2.11.12",
+        "v2.12.8",
+        "v2.13.4",
+        "v2.14.0",
+        "v2.14.1"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-turtles-e2e",
+      "branches_checked": [
+        "2.15.0",
+        "copilot/create-implementation-plan-test-scenarios",
+        "deploy-renovate-2026-04-10-11-07-49",
+        "docker-allow-forward",
+        "e2e-comment-trigger",
+        "main",
+        "release-2.8",
+        "release-2.9",
+        "release-2.10",
+        "revert-workaround-53883"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/fleet-e2e",
+      "branches_checked": [
+        "2.10-stable",
+        "add_2.12_upgrade_job",
+        "automate_cluster_selector_29",
+        "ci_new_lane_with_proxy",
+        "fix-cert-manager-flag",
+        "fix-failing-tests",
+        "fleeqa/restore-qase-reporter-as-before-cypress-15.13.0",
+        "fleeqa/stress-tests",
+        "fleet-62-data",
+        "fleet-qa/115-deploy-traefik-on-kubesystem"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/security-ui-exts",
+      "branches_checked": [
+        "0.5.0",
+        "dependabot/npm_and_yarn/node-forge-1.3.2",
+        "dependabot/npm_and_yarn/webpack-5.105.0",
+        "endpoint",
+        "gh-pages",
+        "main",
+        "migration-bak"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/k3k-product-docs",
+      "branches_checked": [
+        "gh-pages",
+        "jhkrug-add-preview",
+        "jhkrug-patch-1",
+        "jhkrug-patch-2",
+        "jhkrug-patch-3",
+        "main"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/product-docs-common",
+      "branches_checked": [
+        "main",
+        "revert-9-workflow-permissions"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-ai-agent",
+      "branches_checked": [
+        "a2a",
+        "add-schema",
+        "agent-permissions",
+        "anarkis/improve-security-workflows",
+        "deepagents",
+        "e2e",
+        "fix-disable-agents",
+        "fix-permissions",
+        "fix-route",
+        "gh-pages"
+      ],
+      "findings": [],
+      "status": "clean"
+    }
+  ],
+  "SUSE-Rancher-Community": [],
+  "rancher-sandbox": [
+    {
+      "repo": "rancher-sandbox/rancher-desktop",
+      "branches_checked": [
+        "5240-wsl-e2e-tests-add-locators",
+        "bats-tests-on-snapshot-list-output",
+        "demo/tabs",
+        "dependabot/go_modules/src/go/guestagent/k8s-9201a7f76f",
+        "dependabot/npm_and_yarn/electron-41.2.1",
+        "dependabot/npm_and_yarn/rancher/components-0.3.0-alpha.4",
+        "main",
+        "merge-v1.21.0",
+        "rddepman/certManager/1.20.1-to-1.20.2",
+        "rddepman/golangci-lint/2.10.1-to-2.11.1"
+      ],
+      "findings": [],
+      "status": "clean"
+    }
+  ],
+  "openSUSE": [
+    {
+      "repo": "openSUSE/py2pack",
+      "branches_checked": [
+        "fix-license-none",
+        "master",
+        "update-alternatives"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/openSUSE-release-tools",
+      "branches_checked": [
+        "epaolantonio/sp7qu",
+        "extend_gather_isos_for_slmicro",
+        "fix_ci",
+        "fix_ci_2",
+        "import_rest_of_pontifex_local_changes",
+        "leap_156",
+        "master",
+        "pkglistgen",
+        "primary_python",
+        "remove_metrics"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/kernel-source",
+      "branches_checked": [
+        "SL-16.0",
+        "SL-16.1",
+        "SLE11-SP4-LTSS",
+        "SLE12-SP5",
+        "SLE15-SP3-LTSS",
+        "SLE15-SP3-RT-LTSS",
+        "SLE15-SP4-LTSS",
+        "SLE15-SP4-RT-LTSS",
+        "SLE15-SP5-LTSS",
+        "SLE15-SP5-RT-LTSS"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/salt",
+      "branches_checked": [
+        "2015.8",
+        "2016.3",
+        "2016.11",
+        "2017.7",
+        "2018.3",
+        "3002-cve-fixes-2021-02",
+        "add-filter-by-networks",
+        "async-batch-2018.3.0",
+        "async-batch-refactoring",
+        "backport-3006.17-security-fixes"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit",
+      "branches_checked": [
+        "251-dist",
+        "add-libzypp-plugin-appdata",
+        "branding",
+        "copyright",
+        "docker",
+        "fuzzable",
+        "lib-use-patternfly-modal-comps",
+        "license",
+        "main",
+        "microos"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/orthos2",
+      "branches_checked": [
+        "master"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/qem-bot",
+      "branches_checked": [
+        "amqp",
+        "feature/mergify_disable_merge_queue",
+        "feature/next",
+        "feature/033_improve_code_quality",
+        "fix/poo199793_alert_queue_state",
+        "master"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-tukit",
+      "branches_checked": [
+        "master",
+        "stable-5.2"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/product-composer",
+      "branches_checked": [
+        "0.5",
+        "0.6",
+        "feature/core_unit_tests",
+        "feature/parsers_unit_tests",
+        "feature/refactor",
+        "main"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/selinux-policy",
+      "branches_checked": [
+        "alp-1.0",
+        "factory",
+        "slemicro-5.1",
+        "slemicro-5.2",
+        "slemicro-5.3",
+        "slemicro-5.4",
+        "slemicro-5.5",
+        "slfo-1.1",
+        "slfo-1.2",
+        "slfo-main"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-subscriptions",
+      "branches_checked": [
+        "main",
+        "tasks-container-update-cockpit-ci-container-20251201-034752",
+        "tasks-container-update-cockpit-ci-container-20251222-033920",
+        "tasks-container-update-cockpit-ci-container-20260302-041055",
+        "url-empty"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-repos",
+      "branches_checked": [
+        "main",
+        "revert-50-cockpit-lib-update-cockpit-lib-20250424-030129",
+        "tasks-container-update-cockpit-ci-container-20251201-034749",
+        "tasks-container-update-cockpit-ci-container-20251222-032912"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-packages",
+      "branches_checked": [
+        "cockpit-lib-update-cockpit-lib-20250918-025733",
+        "main",
+        "task-container-fix",
+        "tasks-container-update-cockpit-ci-container-20251201-035322",
+        "tasks-container-update-cockpit-ci-container-20251222-034520"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/quiz",
+      "branches_checked": [
+        "ci/codesql",
+        "ci/dependabot",
+        "ci/docker-container-registries",
+        "dependabot/npm_and_yarn/lodash-4.17.23",
+        "dependabot/npm_and_yarn/multi-a07fd7252a",
+        "dependabot/npm_and_yarn/multi-c8afcbbcd8",
+        "dependabot/npm_and_yarn/tar-fs-2.1.4",
+        "docs/instance",
+        "docs/readme-badges",
+        "feat/add-logos"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/docbuild",
+      "branches_checked": [
+        "4-automate-json",
+        "dependabot/pip/pydantic-gte-2.13.3",
+        "dependabot/pip/rich-gte-15.0.0",
+        "dependabot/pip/sphinx-autoapi-gte-3.8.0",
+        "dependabot/pip/tomlkit-gte-0.14.0",
+        "dependabot/pip/towncrier-gte-25.8.0",
+        "docs-docker",
+        "fix-url-issue-in-repo",
+        "gh-pages",
+        "improve-docker"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/mcp-bugzilla",
+      "branches_checked": [
+        "main"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-snapshots",
+      "branches_checked": [
+        "cockpit-lib-update-cockpit-lib-20251009-023115",
+        "cockpit-lib-update-cockpit-lib-20251016-023239",
+        "cockpit-lib-update-cockpit-lib-20251023-023257",
+        "cockpit-lib-update-cockpit-lib-20251030-023513",
+        "cockpit-lib-update-cockpit-lib-20251106-023533",
+        "cockpit-lib-update-cockpit-lib-20251113-023614",
+        "cockpit-lib-update-cockpit-lib-20251120-023459",
+        "cockpit-lib-update-cockpit-lib-20251127-023510",
+        "cockpit-lib-update-cockpit-lib-20251204-023652",
+        "cockpit-lib-update-cockpit-lib-20251211-023911"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-bootloader",
+      "branches_checked": [
+        "ci-fix",
+        "cockpit-lib-update-cockpit-lib-20251023-023533",
+        "cockpit-lib-update-cockpit-lib-20251030-031447",
+        "cockpit-lib-update-cockpit-lib-20251106-031722",
+        "cockpit-lib-update-cockpit-lib-20251113-031759",
+        "cockpit-lib-update-cockpit-lib-20251120-031310",
+        "cockpit-lib-update-cockpit-lib-20251127-031459",
+        "cockpit-lib-update-cockpit-lib-20251204-032324",
+        "cockpit-lib-update-cockpit-lib-20251211-033716",
+        "cockpit-lib-update-cockpit-lib-20251218-032439"
+      ],
+      "findings": [],
+      "status": "clean"
+    }
+  ]
+}

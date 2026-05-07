@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(tee -a log/github_scan.log)",
+      "Bash(tee -a log/obs_scan.log)",
+      "Bash(pkill *)",
+      "Bash(tee log/obs_scan_v2.log)",
+      "Bash(tee log/github_scan_authenticated.log)",
+      "Bash(break)",
+      "Bash(tee log/obs_comprehensive.log)",
+      "Bash(mv github_scanner.py scan_github.py)",
+      "Bash(mv obs_scanner_comprehensive.py scan_obs.py)",
+      "Bash(mv obs_scanner_recent.py scan_obs_quick.py)"
+    ]
+  }
+}

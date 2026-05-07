@@ -1,0 +1,64 @@
+{
+  "scan_date": "2026-05-02",
+  "attack_window": "last_24_hours",
+  "attacks": [
+    {
+      "ecosystem": "npm",
+      "package_name": "pgserve",
+      "malicious_versions": ["1.1.11", "1.1.12", "1.1.13"],
+      "safe_versions": ["<=1.1.10"],
+      "discovered": "2026-04-21",
+      "attack_type": "self-propagating_worm",
+      "impact": "credential_theft_cloud_keys_ssh_keys_tokens",
+      "exfiltration": "telemetry.api-monitor.com, ICP canister"
+    },
+    {
+      "ecosystem": "npm",
+      "package_name": "@automagik/genie",
+      "malicious_versions": ["4.260421.33", "4.260421.34", "4.260421.35", "4.260421.36", "4.260421.37", "4.260421.38", "4.260421.39"],
+      "safe_versions": ["<4.260421.33"],
+      "discovered": "2026-04-21",
+      "attack_type": "self-propagating_worm",
+      "impact": "credential_theft_cloud_keys_ssh_keys_tokens_crypto_wallets",
+      "exfiltration": "webhook, ICP canister cjn37-uyaaa-aaaac-qgnva-cai"
+    },
+    {
+      "ecosystem": "pypi",
+      "package_name": "xinference",
+      "malicious_versions": ["2.6.0", "2.6.1", "2.6.2"],
+      "safe_versions": ["<2.6.0", ">2.6.2"],
+      "discovered": "2026-04-22",
+      "attack_type": "two-stage_credential_stealer",
+      "impact": "ssh_keys_cloud_credentials_env_vars_secrets_crypto_wallets",
+      "attribution": "TeamPCP"
+    },
+    {
+      "ecosystem": "npm",
+      "package_name": "@bitwarden/cli",
+      "malicious_versions": ["2026.4.0"],
+      "safe_versions": ["<=2026.3.0"],
+      "discovered": "2026-04-23",
+      "attack_type": "compromised_ci_cd_pipeline",
+      "attack_window": "2026-04-22 17:57 ET to 2026-04-22 19:30 ET",
+      "impact": "github_npm_tokens_ssh_keys_crypto_wallets_cloud_credentials_env_vars_shell_history",
+      "attribution": "TeamPCP",
+      "payload_file": "bw1.js",
+      "method": "compromised_github_action"
+    },
+    {
+      "ecosystem": "pypi",
+      "package_name": "pytorch-lightning",
+      "malicious_versions": ["2.6.2", "2.6.3"],
+      "safe_versions": ["<=2.6.1"],
+      "discovered": "2026-04-30",
+      "attack_type": "compromised_pypi_account",
+      "impact": "ssh_keys_shell_histories_cloud_credentials_github_npm_tokens_crypto_wallets",
+      "attribution": "Mini_Shai-Hulud",
+      "persistence_hooks": [".claude/", ".vscode/"],
+      "auto_execute_on_import": true,
+      "payload_location": "_runtime directory",
+      "exfiltration": "attacker_controlled_github_repos",
+      "notes": "Automatically executes on import. Plants persistence hooks in Claude Code and VS Code. Package quarantined by PyPI admins."
+    }
+  ]
+}

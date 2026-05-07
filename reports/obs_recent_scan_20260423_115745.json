@@ -1,0 +1,62 @@
+[
+  {
+    "project": "devel:languages:R:autoCRAN",
+    "package": "R-factorana",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "devel:languages:R:autoCRAN",
+    "package": "R-extraDistr",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "openSUSE:Factory:Staging:E",
+    "package": "bootstrap-copy",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "openSUSE:Factory:Staging:F",
+    "package": "bootstrap-copy",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "openSUSE:Factory:Staging:L",
+    "package": "bootstrap-copy",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "SUSE:SLE-12-SP2:Update",
+    "package": "patchinfo.43447",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "home:mthias",
+    "package": "mariadb",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "SUSE:SLE-12-SP2:Update",
+    "package": "tigervnc.43447",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "openSUSE:Factory:Staging:J",
+    "package": "bootstrap-copy",
+    "findings": [],
+    "status": "clean"
+  },
+  {
+    "project": "home:ecsos",
+    "package": "freerdp",
+    "findings": [],
+    "status": "clean"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "github_organizations": [
+    {
+      "name": "SUSE",
+      "url": "https://github.com/SUSE",
+      "repos": "490+",
+      "description": "Main SUSE organization"
+    },
+    {
+      "name": "rancher",
+      "url": "https://github.com/rancher",
+      "repos": "598",
+      "description": "Rancher container management platform"
+    },
+    {
+      "name": "SUSE-Rancher-Community",
+      "url": "https://github.com/SUSE-Rancher-Community",
+      "repos": "21",
+      "description": "SUSE Rancher community projects"
+    },
+    {
+      "name": "rancher-sandbox",
+      "url": "https://github.com/rancher-sandbox",
+      "repos": "unknown",
+      "description": "Rancher experimental/sandbox projects"
+    },
+    {
+      "name": "openSUSE",
+      "url": "https://github.com/openSUSE",
+      "repos": "unknown",
+      "description": "openSUSE community projects"
+    },
+    {
+      "name": "uyuni-project",
+      "url": "https://github.com/uyuni-project",
+      "repos": "~50",
+      "description": "Uyuni / SUSE Multi-Linux Manager and MCP servers"
+    }
+  ],
+  "obs_instance": {
+    "url": "https://build.opensuse.org",
+    "packages": "140000+",
+    "users": "30000",
+    "distributions": "21",
+    "architectures": "6",
+    "key_projects": [
+      "openSUSE:Factory",
+      "openSUSE:Leap:15.5",
+      "openSUSE:Leap:15.6",
+      "SUSE:SLE-15:SP5",
+      "SUSE:SLE-15:SP6"
+    ]
+  }
+}

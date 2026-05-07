@@ -1,0 +1,575 @@
+{
+  "SUSE": [
+    {
+      "repo": "SUSE/suse-migration-services",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/ci-coding-format.yml",
+        ".github/workflows/ci-testing.yml"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/kernel-source",
+      "findings": [],
+      "files_checked": [
+        "scripts/cve_tools/cve2metadata.sh",
+        "scripts/cve_tools/decorate-c-b-s.sh",
+        "scripts/git_sort/check_missing_fixes.sh",
+        "scripts/git_sort/clean_header.sh",
+        "scripts/git_sort/lib.sh",
+        "scripts/git_sort/lib_from.sh",
+        "scripts/git_sort/lib_tag.sh",
+        "scripts/git_sort/pre-commit.sh",
+        "scripts/git_sort/quilt-mode.sh",
+        "scripts/git_sort/refs_in_series.sh",
+        "scripts/grep_branches.sh",
+        "scripts/linux_git.sh",
+        "scripts/python/tests/kutil/rpm/kgr/config.sh",
+        "scripts/python/tests/kutil/rpm/klp/config.sh",
+        "scripts/python/tests/kutil/rpm/krn/config.sh",
+        "scripts/python/tests/kutil/rpm/krna/config.sh",
+        "scripts/python/tests/kutil/rpm/krnf/config.sh",
+        "scripts/refresh_patch.sh",
+        "scripts/run_oldconfig.sh",
+        "scripts/sequence-patch.sh",
+        "scripts/tar-up.sh",
+        "scripts/wd-functions.sh"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/BCI-dockerfile-generator",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/cleanup-staging.yml",
+        ".github/workflows/command-dispatch.yml",
+        ".github/workflows/help-command.yml",
+        ".github/workflows/obs_build.yml",
+        ".github/workflows/update-cr-project.yml",
+        ".github/workflows/update-deployment-branches.yml",
+        ".github/workflows/update-versions-and-files.yml",
+        ".github/workflows/vc-command.yml",
+        ".gitlab-ci.yml"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/authentik",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/_reusable-docker-build-single.yml",
+        ".github/workflows/_reusable-docker-build.yml",
+        ".github/workflows/api-ts-publish.yml",
+        ".github/workflows/ci-api-docs.yml",
+        ".github/workflows/ci-aws-cfn.yml",
+        ".github/workflows/ci-docs-source.yml",
+        ".github/workflows/ci-docs.yml",
+        ".github/workflows/ci-main-daily.yml",
+        ".github/workflows/ci-main.yml",
+        ".github/workflows/ci-outpost.yml",
+        ".github/workflows/ci-web.yml",
+        ".github/workflows/gen-image-compress.yml",
+        ".github/workflows/gen-update-webauthn-mds.yml",
+        ".github/workflows/gh-cherry-pick.yml",
+        ".github/workflows/gh-gha-cache-cleanup.yml",
+        ".github/workflows/gh-ghcr-retention.yml",
+        ".github/workflows/packages-npm-publish.yml",
+        ".github/workflows/qa-codeql.yml",
+        ".github/workflows/qa-semgrep.yml",
+        ".github/workflows/release-branch-off.yml",
+        ".github/workflows/release-next-branch.yml",
+        ".github/workflows/release-publish.yml",
+        ".github/workflows/release-tag.yml",
+        ".github/workflows/repo-stale.yml",
+        ".github/workflows/translation-advice.yml",
+        ".github/workflows/translation-extract-compile.yml",
+        "lifecycle/aws/package.json",
+        "lifecycle/container/Dockerfile",
+        "lifecycle/container/ldap.Dockerfile",
+        "lifecycle/container/proxy.Dockerfile",
+        "lifecycle/container/rac.Dockerfile",
+        "lifecycle/container/radius.Dockerfile",
+        "package.json",
+        "packages/docusaurus-config/package.json",
+        "packages/esbuild-plugin-live-reload/package.json",
+        "packages/eslint-config/package.json",
+        "packages/prettier-config/package.json",
+        "packages/tsconfig/package.json",
+        "scripts/create_bucket.sh",
+        "scripts/test_docker.sh",
+        "web/package.json",
+        "web/packages/core/package.json",
+        "web/packages/formdata-polyfill/package.json",
+        "web/packages/lex/package.json",
+        "web/packages/node-domexception/package.json",
+        "web/packages/sfe/package.json",
+        "website/Dockerfile",
+        "website/api/package.json",
+        "website/docs/package.json",
+        "website/docusaurus-theme/package.json"
+      ],
+      "status": "clean"
+    }
+  ],
+  "rancher": [
+    {
+      "repo": "rancher/dashboard",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/add-issue-labels.yaml",
+        ".github/workflows/agentics-maintenance.yml",
+        ".github/workflows/auto-retry.yaml",
+        ".github/workflows/automation-candidate.yaml",
+        ".github/workflows/build-and-upload-branch.yaml",
+        ".github/workflows/build-and-upload-release.yaml",
+        ".github/workflows/build-and-upload.yaml",
+        ".github/workflows/build-extension-catalog.yml",
+        ".github/workflows/build-extension-charts.yml",
+        ".github/workflows/build-extensions-test.yml",
+        ".github/workflows/build-test.yaml",
+        ".github/workflows/check-plugins.yaml",
+        ".github/workflows/close-stale-enhancement-requests.yaml",
+        ".github/workflows/code-coverage.yaml",
+        ".github/workflows/create-pr-build-extension-charts.yml",
+        ".github/workflows/daily-accessibility-review.lock.yml",
+        ".github/workflows/daily-issue-grooming.lock.yml",
+        ".github/workflows/daily-repo-status.lock.yml",
+        ".github/workflows/daily-test-improver.lock.yml",
+        ".github/workflows/docusaurus.yaml",
+        ".github/workflows/duplicate-code-detector.lock.yml",
+        ".github/workflows/extensions-compatibility-tests.yaml",
+        ".github/workflows/fossa.yaml",
+        ".github/workflows/issue-triage.lock.yml",
+        ".github/workflows/port-issue.yaml",
+        ".github/workflows/port-pr.yaml",
+        ".github/workflows/pr-fix.lock.yml",
+        ".github/workflows/pr-gh-project-processor.yaml",
+        ".github/workflows/pr-gh-project.yaml",
+        ".github/workflows/rancher-components.yaml",
+        ".github/workflows/release-cypress-pkg.yaml",
+        ".github/workflows/release-rancher-components.yml",
+        ".github/workflows/release-shell-pkg.yaml",
+        ".github/workflows/storybook.yaml",
+        ".github/workflows/test-extension-workflows-master.yml",
+        ".github/workflows/test-extension-workflows-release-2.8.yml",
+        ".github/workflows/test-extension-workflows-release-2.9.yml",
+        ".github/workflows/test.yaml",
+        ".github/workflows/update-cloud-data.yml",
+        ".github/workflows/valid-milestone-change.yml",
+        ".github/workflows/valid-pr.yaml",
+        "creators/extension/app/package.json",
+        "creators/extension/migrate/package.json",
+        "creators/extension/package.json",
+        "creators/extension/pkg/package.json",
+        "creators/extension/update/package.json",
+        "cypress/package.json",
+        "docusaurus/package.json",
+        "package.json",
+        "pkg/aks/package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/systemd-node",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/fossa.yml",
+        ".github/workflows/release.yaml",
+        "Dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-docs",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/deploy.yml",
+        ".github/workflows/test-deploy.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-turtles-e2e",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/fossa.yml",
+        ".github/workflows/janitor.yaml",
+        ".github/workflows/label-and-add-to-project.yaml",
+        ".github/workflows/linter.yaml",
+        ".github/workflows/master-e2e.yaml",
+        ".github/workflows/ui-e2e.yaml",
+        "tests/cypress/latest/package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/fleet-e2e",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/fossa.yml",
+        ".github/workflows/master-e2e.yaml",
+        ".github/workflows/renovate-vault.yml",
+        ".github/workflows/ui-pr_rm_current.yaml",
+        ".github/workflows/ui-rm-hardening.yaml",
+        ".github/workflows/ui-rm_head.yaml",
+        ".github/workflows/ui-rm_head_2.10.yaml",
+        ".github/workflows/ui-rm_head_2.11.yaml",
+        ".github/workflows/ui-rm_head_2.12.yaml",
+        ".github/workflows/ui-rm_head_2.13.yaml",
+        ".github/workflows/ui-rm_head_2.14.yaml",
+        ".github/workflows/ui-rm_head_2.8.yaml",
+        ".github/workflows/ui-rm_head_2.9.yaml",
+        ".github/workflows/ui-rm_head_upgrade.yaml",
+        ".github/workflows/ui-rm_prime_alpha_rc.yaml",
+        "tests/package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/security-ui-exts",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/add_issue.yaml",
+        ".github/workflows/fossa.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/typo-check.yml",
+        ".github/workflows/unit-test.yml",
+        ".github/workflows/zizmor.yaml",
+        "package.json",
+        "pkg/network/package.json",
+        "pkg/runtime-process-profile/package.json",
+        "pkg/sbomscanner-ui-ext/package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/k3k-product-docs",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/preview.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/product-docs-common",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/test-deploy-min.yml",
+        ".github/workflows/write-tasks.yml",
+        "package.json",
+        "scripts/recurring/backport_modules.sh",
+        "scripts/recurring/pre_commit.sh",
+        "scripts/recurring/update_revdate.sh"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "rancher/rancher-ai-agent",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/fossa.yml",
+        ".github/workflows/publish-chart.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/run-tests.yml",
+        ".github/workflows/sync-milestones.yml",
+        "package/Dockerfile"
+      ],
+      "status": "clean"
+    }
+  ],
+  "SUSE-Rancher-Community": [],
+  "rancher-sandbox": [
+    {
+      "repo": "rancher-sandbox/rancher-desktop",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/bats.yaml",
+        ".github/workflows/codeql.yaml",
+        ".github/workflows/docker-cli-monitor.yaml",
+        ".github/workflows/k3s-versions.yaml",
+        ".github/workflows/linux-e2e.yaml",
+        ".github/workflows/linux-release.yaml",
+        ".github/workflows/macM1-e2e.yaml",
+        ".github/workflows/package.yaml",
+        ".github/workflows/paths-ignore.yaml",
+        ".github/workflows/rddepman.yaml",
+        ".github/workflows/rdx-host-api-tests.yaml",
+        ".github/workflows/release-merge-to-main.yaml",
+        ".github/workflows/scorecard.yml",
+        ".github/workflows/screenshot.yaml",
+        ".github/workflows/smoke-test.yaml",
+        ".github/workflows/spelling.yml",
+        ".github/workflows/test.yaml",
+        ".github/workflows/ucmonitor.yaml",
+        ".github/workflows/upgrade-generate.yaml",
+        ".github/workflows/windows-e2e.yaml",
+        ".github/workflows/yarn-dedupe.yaml",
+        "bats/tests/compose/testdata/Dockerfile.nginx",
+        "bats/tests/compose/testdata/app/Dockerfile",
+        "bats/tests/extensions/testdata/Dockerfile",
+        "package.json",
+        "pkg/rancher-desktop/sudo-prompt/package.json",
+        "scripts/go-license-check.sh",
+        "scripts/install-latest-ci.sh",
+        "scripts/k3s-versions.sh",
+        "scripts/spelling.sh",
+        "scripts/yarn-dedupe.sh"
+      ],
+      "status": "clean"
+    }
+  ],
+  "openSUSE": [
+    {
+      "repo": "openSUSE/py2pack",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/tox.yml"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/openSUSE-release-tools",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/ci-test.yml",
+        ".github/workflows/editorconfig-check.yml",
+        "dist/ci/miniobs/Dockerfile",
+        "dist/ci/testenv-tumbleweed/Dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/kernel-source",
+      "findings": [],
+      "files_checked": [
+        "scripts/cve_tools/cve2metadata.sh",
+        "scripts/cve_tools/decorate-c-b-s.sh",
+        "scripts/git_sort/check_missing_fixes.sh",
+        "scripts/git_sort/clean_header.sh",
+        "scripts/git_sort/lib.sh",
+        "scripts/git_sort/lib_from.sh",
+        "scripts/git_sort/lib_tag.sh",
+        "scripts/git_sort/pre-commit.sh",
+        "scripts/git_sort/quilt-mode.sh",
+        "scripts/git_sort/refs_in_series.sh",
+        "scripts/grep_branches.sh",
+        "scripts/linux_git.sh",
+        "scripts/python/tests/kutil/rpm/kgr/config.sh",
+        "scripts/python/tests/kutil/rpm/klp/config.sh",
+        "scripts/python/tests/kutil/rpm/krn/config.sh",
+        "scripts/python/tests/kutil/rpm/krna/config.sh",
+        "scripts/python/tests/kutil/rpm/krnf/config.sh",
+        "scripts/refresh_patch.sh",
+        "scripts/run_oldconfig.sh",
+        "scripts/sequence-patch.sh",
+        "scripts/tar-up.sh",
+        "scripts/wd-functions.sh"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/salt",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/backport.yml",
+        ".github/workflows/build-deps-ci-action.yml",
+        ".github/workflows/build-deps-onedir.yml",
+        ".github/workflows/build-docs.yml",
+        ".github/workflows/build-packages.yml",
+        ".github/workflows/build-salt-onedir.yml",
+        ".github/workflows/ci.yml",
+        ".github/workflows/lint-action.yml",
+        ".github/workflows/nightly.yml",
+        ".github/workflows/pre-commit-action.yml",
+        ".github/workflows/release-tag.yml",
+        ".github/workflows/release-update-winrepo.yml",
+        ".github/workflows/release-upload-virustotal.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/scheduled.yml",
+        ".github/workflows/staging.yml",
+        ".github/workflows/test-action-linux.yml",
+        ".github/workflows/test-action-macos.yml",
+        ".github/workflows/test-action-windows.yml",
+        ".github/workflows/test-package-downloads-action.yml",
+        ".github/workflows/test-packages-action-linux.yml",
+        ".github/workflows/test-packages-action-macos.yml",
+        ".github/workflows/test-packages-action-windows.yml",
+        ".github/workflows/triage.yml",
+        "tests/integration/files/file/base/Dockerfile",
+        "tests/integration/files/file/base/docker_non_root/Dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/build-ws-container.yml",
+        ".github/workflows/codeql.yml",
+        ".github/workflows/differential-shellcheck.yml",
+        ".github/workflows/flatpak-test.yml",
+        ".github/workflows/npm-update-pf.yml",
+        ".github/workflows/npm-update.yml",
+        ".github/workflows/pybridge-c8s.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/reposchutz.yml",
+        ".github/workflows/unit-tests-refresh.yml",
+        ".github/workflows/unit-tests.yml",
+        ".github/workflows/urls-check.yml",
+        ".github/workflows/weblate-sync-po.yml",
+        ".github/workflows/weblate-sync-pot.yml",
+        "containers/unit-tests/Dockerfile",
+        "containers/ws/Dockerfile",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/orthos2",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/lint.yml",
+        ".github/workflows/tests.yml",
+        "docker/bmc/bmc.dockerfile",
+        "docker/cobbler/cobbler.dockerfile",
+        "docker/develop-leap156.dockerfile",
+        "docker/develop-tw.dockerfile",
+        "docker/serial-console/serial-console.dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/qem-bot",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/checklist.yml",
+        ".github/workflows/ci.yml"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-tukit",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/product-composer",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/tests.yaml"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/selinux-policy",
+      "findings": [],
+      "files_checked": [],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-subscriptions",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        ".github/workflows/release.yml",
+        ".github/workflows/tasks-container-update.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-repos",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        ".github/workflows/release.yml",
+        ".github/workflows/tasks-container-update.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-packages",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        ".github/workflows/release.yml",
+        ".github/workflows/tasks-container-update.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/quiz",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/codeql.yml",
+        ".github/workflows/docker-publish.yml",
+        ".github/workflows/extract-pot.yml",
+        "Dockerfile",
+        "Dockerfile-Production",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/docbuild",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/codeql-analysis.yml",
+        ".github/workflows/coverage-comment.yml",
+        ".github/workflows/gh-pages.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/ruff.yml",
+        "Dockerfile",
+        "ci/Dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/mcp-bugzilla",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/checks.yml",
+        "Dockerfile"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-snapshots",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        ".github/workflows/release.yml",
+        ".github/workflows/tasks-container-update.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    },
+    {
+      "repo": "openSUSE/cockpit-bootloader",
+      "findings": [],
+      "files_checked": [
+        ".github/workflows/cockpit-lib-update.yml",
+        ".github/workflows/pull.yaml",
+        ".github/workflows/tasks-container-update.yml",
+        "package.json"
+      ],
+      "status": "clean"
+    }
+  ]
+}

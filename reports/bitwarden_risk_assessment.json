@@ -1,0 +1,20 @@
+{
+  "check_date": "2026-04-23T17:36:06.449561",
+  "attack": "@bitwarden/cli@2026.4.0",
+  "total_repos_analyzed": 34,
+  "high_risk_repos": [
+    "SUSE/BCI-dockerfile-generator",
+    "SUSE/authentik",
+    "SUSE/BCI-dockerfile-generator",
+    "SUSE/authentik",
+    "rancher/security-ui-exts"
+  ],
+  "medium_risk_repos": [
+    "rancher/dashboard",
+    "openSUSE/quiz",
+    "openSUSE/docbuild"
+  ],
+  "low_risk_count": 26,
+  "recommendation": "Manual check needed for high/medium risk repos",
+  "requires_github_token": "For automated deep scanning"
+}

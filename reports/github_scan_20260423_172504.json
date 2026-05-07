@@ -1,0 +1,56 @@
+{
+  "SUSE": [
+    {
+      "repo": "SUSE/suse-migration-services",
+      "branches_checked": [
+        "boottest",
+        "bsc1219004test",
+        "bsc1219004",
+        "bsc1222258fix",
+        "bsc1222258isobuildtest",
+        "bsc1222258sle15sp3",
+        "bsc1222258",
+        "bsc1249593",
+        "check_wicked_service",
+        "clemens_network_magic"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/kernel-source",
+      "branches_checked": [
+        "SL-16.0",
+        "SL-16.1",
+        "SLE11-SP4-LTSS",
+        "SLE12-SP5",
+        "SLE15-SP3-LTSS",
+        "SLE15-SP3-RT-LTSS",
+        "SLE15-SP4-LTSS",
+        "SLE15-SP4-RT-LTSS",
+        "SLE15-SP5-LTSS",
+        "SLE15-SP5-RT-LTSS"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/BCI-dockerfile-generator",
+      "branches_checked": [
+        "main",
+        "master"
+      ],
+      "findings": [],
+      "status": "clean"
+    },
+    {
+      "repo": "SUSE/authentik",
+      "branches_checked": [
+        "main",
+        "master"
+      ],
+      "findings": [],
+      "status": "clean"
+    }
+  ]
+}
