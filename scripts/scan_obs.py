@@ -24,20 +24,13 @@ class OBSComprehensiveScanner:
             attack_dates = [datetime.strptime(a['discovered'], '%Y-%m-%d') for a in data['attacks']]
             self.attack_start_date = min(attack_dates)
 
-        # SUSE-responsible projects (official SUSE/openSUSE projects)
-        self.suse_projects = [
-            'openSUSE:Factory',
-            'openSUSE:Leap:15.5',
-            'openSUSE:Leap:15.6',
-            'openSUSE:Leap:16.0',
-            'openSUSE:Tumbleweed',
-            'devel:languages:nodejs',
-            'devel:languages:python',
-            'devel:languages:python3',
-            'server:Rancher',
-            'Cloud:Tools',
-            'Virtualization:containers',
-        ]
+        # SUSE-responsible projects (loaded from scan_targets.json, priority-first)
+        with open('scripts/scan_targets.json', 'r') as f:
+            targets = json.load(f)
+        self.suse_projects = (
+            [p['name'] for p in targets['obs']['projects'] if p.get('priority')]
+            + [p['name'] for p in targets['obs']['projects'] if not p.get('priority')]
+        )
 
     def get_project_packages(self, project: str) -> List[str]:
         """Get all packages in a project"""

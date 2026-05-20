@@ -91,10 +91,12 @@ class OBSRecentScanner:
         findings = []
 
         for attack in self.compromised:
-            if attack['ecosystem'] == 'npm':
-                pkg_name = attack['package_name']
+            if attack['ecosystem'] != 'npm':
+                continue
 
-                # Look for npm package references
+            # Handle single-package format (package_name + malicious_versions)
+            if 'package_name' in attack:
+                pkg_name = attack['package_name']
                 if pkg_name in content:
                     for mal_ver in attack['malicious_versions']:
                         if mal_ver in content:
@@ -103,6 +105,18 @@ class OBSRecentScanner:
                                 'version': mal_ver,
                                 'attack': attack
                             })
+
+            # Handle multi-package format (package_scope + packages dict)
+            elif 'packages' in attack:
+                for pkg_name, mal_versions in attack['packages'].items():
+                    if pkg_name in content:
+                        for mal_ver in mal_versions:
+                            if mal_ver in content:
+                                findings.append({
+                                    'package': pkg_name,
+                                    'version': mal_ver,
+                                    'attack': attack
+                                })
 
         return findings
 

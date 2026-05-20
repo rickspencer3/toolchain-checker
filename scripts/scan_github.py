@@ -173,16 +173,33 @@ class GitHubScanner:
                 if dep_type in data:
                     for pkg_name, version in data[dep_type].items():
                         for attack in self.compromised:
-                            if attack['ecosystem'] == 'npm' and attack['package_name'] == pkg_name:
-                                # Check if version matches malicious versions
-                                for mal_ver in attack['malicious_versions']:
-                                    if mal_ver in str(version):
-                                        findings.append({
-                                            'package': pkg_name,
-                                            'version': version,
-                                            'malicious_version': mal_ver,
-                                            'attack': attack
-                                        })
+                            if attack['ecosystem'] != 'npm':
+                                continue
+
+                            # Handle old format (package_name + malicious_versions)
+                            if 'package_name' in attack:
+                                if attack['package_name'] == pkg_name:
+                                    for mal_ver in attack['malicious_versions']:
+                                        if mal_ver in str(version):
+                                            findings.append({
+                                                'package': pkg_name,
+                                                'version': version,
+                                                'malicious_version': mal_ver,
+                                                'attack': attack
+                                            })
+
+                            # Handle new format (package_scope + packages dict)
+                            elif 'packages' in attack:
+                                if pkg_name in attack['packages']:
+                                    malicious_versions = attack['packages'][pkg_name]
+                                    for mal_ver in malicious_versions:
+                                        if mal_ver in str(version):
+                                            findings.append({
+                                                'package': pkg_name,
+                                                'version': version,
+                                                'malicious_version': mal_ver,
+                                                'attack': attack
+                                            })
         except:
             pass
 
@@ -332,8 +349,11 @@ def main():
     scanner = GitHubScanner(token)
     scanner.check_rate_limit()
 
-    # Organizations to scan
-    orgs = ['SUSE', 'rancher', 'SUSE-Rancher-Community', 'rancher-sandbox', 'openSUSE']
+    # Organizations to scan (loaded from scan_targets.json)
+    with open('scripts/scan_targets.json', 'r') as f:
+        targets = json.load(f)
+    orgs = ([o['name'] for o in targets['github']['orgs'] if o.get('priority')]
+            + [o['name'] for o in targets['github']['orgs'] if not o.get('priority')])
 
     # Create output filename at start
     output_file = f'reports/github_scan_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'

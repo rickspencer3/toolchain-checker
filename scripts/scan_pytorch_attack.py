@@ -24,17 +24,11 @@ class PyTorchAttackScanner:
 
         self.api_base = 'https://api.github.com'
 
-        # Define SUSE AI repos to prioritize
-        self.ai_repos = [
-            'SUSE/suse-ai-stack',
-            'SUSE/suse-ai-observability-extension',
-            'SUSE/doc-suse-ai',
-            'SUSE/suse-ai-up',
-            'SUSE/suse-ai-deployer'
-        ]
-
-        # Define all orgs to scan
-        self.orgs = ['SUSE', 'rancher', 'rancher-sandbox', 'openSUSE', 'SUSE-Rancher-Community']
+        # Load scan targets from scan_targets.json
+        with open('scripts/scan_targets.json', 'r') as f:
+            targets = json.load(f)
+        self.ai_repos = targets['github']['priority_repos']
+        self.orgs = [o['name'] for o in targets['github']['orgs']]
 
         # Results tracking
         self.results = {
