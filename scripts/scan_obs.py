@@ -9,7 +9,28 @@ import requests
 import time
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Set
-from datetime import datetime
+from datetime import datetime, timedelta
+from run_log import log, attack_label
+
+SAFETY_BUFFER_DAYS = 7
+
+def get_attack_start_date(attack: dict) -> datetime:
+    """Return the earliest date a package could have been compromised.
+
+    Prefers the actual attack time over the public discovery date, since
+    attacks are typically active for hours or days before being reported.
+    Falls back to discovered - SAFETY_BUFFER_DAYS when no attack time is known.
+    """
+    for field in ('attack_time', 'attack_window'):
+        value = attack.get(field, '')
+        if value:
+            try:
+                date_str = value.split()[0]  # "2026-05-11 19:20-..." -> "2026-05-11"
+                return datetime.strptime(date_str, '%Y-%m-%d')
+            except (ValueError, IndexError):
+                pass
+    discovered = datetime.strptime(attack['discovered'], '%Y-%m-%d')
+    return discovered - timedelta(days=SAFETY_BUFFER_DAYS)
 
 class OBSComprehensiveScanner:
     def __init__(self):
@@ -20,24 +41,17 @@ class OBSComprehensiveScanner:
         with open('scripts/compromised_packages.json', 'r') as f:
             data = json.load(f)
             self.compromised = data['attacks']
-            # Get earliest attack date
-            attack_dates = [datetime.strptime(a['discovered'], '%Y-%m-%d') for a in data['attacks']]
-            self.attack_start_date = min(attack_dates)
+            # Use actual attack time (not discovery date) so packages updated
+            # before the news broke are not skipped
+            self.attack_start_date = min(get_attack_start_date(a) for a in data['attacks'])
 
-        # SUSE-responsible projects (official SUSE/openSUSE projects)
-        self.suse_projects = [
-            'openSUSE:Factory',
-            'openSUSE:Leap:15.5',
-            'openSUSE:Leap:15.6',
-            'openSUSE:Leap:16.0',
-            'openSUSE:Tumbleweed',
-            'devel:languages:nodejs',
-            'devel:languages:python',
-            'devel:languages:python3',
-            'server:Rancher',
-            'Cloud:Tools',
-            'Virtualization:containers',
-        ]
+        # SUSE-responsible projects (loaded from scan_targets.json, priority-first)
+        with open('scripts/scan_targets.json', 'r') as f:
+            targets = json.load(f)
+        self.suse_projects = (
+            [p['name'] for p in targets['obs']['projects'] if p.get('priority')]
+            + [p['name'] for p in targets['obs']['projects'] if not p.get('priority')]
+        )
 
     def get_project_packages(self, project: str) -> List[str]:
         """Get all packages in a project"""
@@ -130,19 +144,34 @@ class OBSComprehensiveScanner:
         findings = []
 
         for attack in self.compromised:
-            pkg_name = attack['package_name']
+            ecosystem = attack.get('ecosystem', '')
+            attack_type = attack.get('attack_type', '')
 
-            # Check if package is mentioned
-            if pkg_name in content or pkg_name.lower() in content.lower():
-                # Check for specific malicious versions
-                for mal_ver in attack['malicious_versions']:
-                    if mal_ver in content:
-                        findings.append({
-                            'package': pkg_name,
-                            'version': mal_ver,
-                            'ecosystem': attack['ecosystem'],
-                            'attack_type': attack['attack_type']
-                        })
+            # Single-package format: package_name + malicious_versions
+            if 'package_name' in attack:
+                pkg_name = attack['package_name']
+                if pkg_name in content or pkg_name.lower() in content.lower():
+                    for mal_ver in attack.get('malicious_versions', []):
+                        if mal_ver in content:
+                            findings.append({
+                                'package': pkg_name,
+                                'version': mal_ver,
+                                'ecosystem': ecosystem,
+                                'attack_type': attack_type
+                            })
+
+            # Multi-package format: packages dict {name: [versions]}
+            elif 'packages' in attack:
+                for pkg_name, mal_versions in attack['packages'].items():
+                    if pkg_name in content:
+                        for mal_ver in mal_versions:
+                            if mal_ver in content:
+                                findings.append({
+                                    'package': pkg_name,
+                                    'version': mal_ver,
+                                    'ecosystem': ecosystem,
+                                    'attack_type': attack_type
+                                })
 
         return findings
 
@@ -252,7 +281,12 @@ def main():
     print(f"Started at: {datetime.now().isoformat()}")
     print(f"=" * 70)
 
+    log('RUN_START', 'OBS comprehensive scan initiated')
+
     scanner = OBSComprehensiveScanner()
+
+    for attack in scanner.compromised:
+        log('ATTACK', attack_label(attack))
 
     print(f"\nAttack Discovery Date: {scanner.attack_start_date.strftime('%Y-%m-%d')}")
     print(f"Scanning SUSE-responsible projects for updates since that date")
@@ -289,6 +323,11 @@ def main():
     print(f"Compromised packages: {compromised}")
     print(f"Results saved to: {output_file}")
     print(f"Finished at: {datetime.now().isoformat()}")
+
+    if compromised:
+        log('COMPROMISED', f"OBS: {total_packages} packages scanned, {compromised} COMPROMISED → {output_file}")
+    else:
+        log('CLEAN', f"OBS: {total_packages} packages scanned, 0 compromised → {output_file}")
 
 if __name__ == '__main__':
     main()

@@ -8,5 +8,14 @@ __pycache__/
 # Secrets
 .github_token
 
-# Logs
-log/*.log
+# Logs (all files in log/)
+log/
+
+# Raw scan output (machine-generated JSON, can be large)
+reports/*.json
+
+# Append-only run log (local only, grows with every run)
+RUN.log
+
+# Claude Code local settings
+.claude/settings.local.json

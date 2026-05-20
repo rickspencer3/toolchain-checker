@@ -10,6 +10,7 @@ import time
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Tuple
 from datetime import datetime, timedelta
+from run_log import log, attack_label
 
 class OBSRecentScanner:
     def __init__(self):
@@ -91,10 +92,12 @@ class OBSRecentScanner:
         findings = []
 
         for attack in self.compromised:
-            if attack['ecosystem'] == 'npm':
-                pkg_name = attack['package_name']
+            if attack['ecosystem'] != 'npm':
+                continue
 
-                # Look for npm package references
+            # Handle single-package format (package_name + malicious_versions)
+            if 'package_name' in attack:
+                pkg_name = attack['package_name']
                 if pkg_name in content:
                     for mal_ver in attack['malicious_versions']:
                         if mal_ver in content:
@@ -103,6 +106,18 @@ class OBSRecentScanner:
                                 'version': mal_ver,
                                 'attack': attack
                             })
+
+            # Handle multi-package format (package_scope + packages dict)
+            elif 'packages' in attack:
+                for pkg_name, mal_versions in attack['packages'].items():
+                    if pkg_name in content:
+                        for mal_ver in mal_versions:
+                            if mal_ver in content:
+                                findings.append({
+                                    'package': pkg_name,
+                                    'version': mal_ver,
+                                    'attack': attack
+                                })
 
         return findings
 
@@ -196,7 +211,12 @@ def main():
     print(f"Started at: {datetime.now().isoformat()}")
     print(f"=" * 60)
 
+    log('RUN_START', 'OBS quick scan initiated (last 24h RSS feed)')
+
     scanner = OBSRecentScanner()
+
+    for attack in scanner.compromised:
+        log('ATTACK', attack_label(attack))
 
     # Create output filename at start
     output_file = f'reports/obs_recent_scan_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
@@ -219,6 +239,11 @@ def main():
 
     print(f"Results saved to {output_file}")
     print(f"Finished at: {datetime.now().isoformat()}")
+
+    if compromised:
+        log('COMPROMISED', f"OBS quick: {len(results)} packages scanned, {len(compromised)} COMPROMISED → {output_file}")
+    else:
+        log('CLEAN', f"OBS quick: {len(results)} packages scanned, 0 compromised → {output_file}")
 
 if __name__ == '__main__':
     main()

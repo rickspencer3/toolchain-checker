@@ -11,7 +11,20 @@ import requests
 import time
 import sys
 from typing import Dict, List, Set
-from datetime import datetime
+from datetime import datetime, timedelta
+
+SAFETY_BUFFER_DAYS = 7
+
+def get_attack_start_date(attack: dict) -> datetime:
+    for field in ('attack_time', 'attack_window'):
+        value = attack.get(field, '')
+        if value:
+            try:
+                return datetime.strptime(value.split()[0], '%Y-%m-%d')
+            except (ValueError, IndexError):
+                pass
+    discovered = datetime.strptime(attack['discovered'], '%Y-%m-%d')
+    return discovered - timedelta(days=SAFETY_BUFFER_DAYS)
 import base64
 
 class PyTorchAttackScanner:
@@ -24,17 +37,16 @@ class PyTorchAttackScanner:
 
         self.api_base = 'https://api.github.com'
 
-        # Define SUSE AI repos to prioritize
-        self.ai_repos = [
-            'SUSE/suse-ai-stack',
-            'SUSE/suse-ai-observability-extension',
-            'SUSE/doc-suse-ai',
-            'SUSE/suse-ai-up',
-            'SUSE/suse-ai-deployer'
-        ]
+        # Load scan targets from scan_targets.json
+        with open('scripts/scan_targets.json', 'r') as f:
+            targets = json.load(f)
+        self.ai_repos = targets['github']['priority_repos']
+        self.orgs = [o['name'] for o in targets['github']['orgs']]
 
-        # Define all orgs to scan
-        self.orgs = ['SUSE', 'rancher', 'rancher-sandbox', 'openSUSE', 'SUSE-Rancher-Community']
+        # Derive attack start date from compromised_packages.json
+        with open('scripts/compromised_packages.json', 'r') as f:
+            pkg_data = json.load(f)
+        self.attack_start_date = min(get_attack_start_date(a) for a in pkg_data['attacks'])
 
         # Results tracking
         self.results = {
@@ -244,14 +256,13 @@ class PyTorchAttackScanner:
             if not data:
                 break
 
-            # Filter for Python repos updated since attack date (April 30, 2026)
-            attack_date = datetime(2026, 4, 30)
+            # Filter for Python repos updated since attack start date
             for repo in data:
                 if repo.get('language') == 'Python':
                     updated_at = repo.get('updated_at')
                     if updated_at:
                         update_date = datetime.strptime(updated_at, '%Y-%m-%dT%H:%M:%SZ')
-                        if update_date >= attack_date:
+                        if update_date >= self.attack_start_date:
                             repos.append(repo['full_name'])
 
             print(f"  Fetched page {page} ({len(data)} repos, {len([r for r in data if r.get('language') == 'Python'])} Python)")

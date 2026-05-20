@@ -1,0 +1,37 @@
+{
+  "_comment": "Authoritative scan target list. Edit this file to add/remove targets. Maintained in git.",
+  "github": {
+    "orgs": [
+      { "name": "SUSE",                   "priority": true,  "description": "Main SUSE org (490+ repos, AI repos, BCI)", "url": "https://github.com/SUSE" },
+      { "name": "rancher",                "priority": true,  "description": "Rancher container management (598 repos)", "url": "https://github.com/rancher" },
+      { "name": "openSUSE",              "priority": true,  "description": "openSUSE community projects", "url": "https://github.com/openSUSE" },
+      { "name": "uyuni-project",          "priority": false, "description": "Uyuni / SUSE Multi-Linux Manager and MCP servers", "url": "https://github.com/uyuni-project" },
+      { "name": "SUSE-Rancher-Community", "priority": false, "description": "SUSE Rancher community (21 repos)", "url": "https://github.com/SUSE-Rancher-Community" },
+      { "name": "rancher-sandbox",        "priority": false, "description": "Rancher experimental projects", "url": "https://github.com/rancher-sandbox" }
+    ],
+    "priority_repos": [
+      "SUSE/suse-ai-stack",
+      "SUSE/suse-ai-observability-extension",
+      "SUSE/doc-suse-ai",
+      "SUSE/suse-ai-up",
+      "SUSE/suse-ai-deployer",
+      "rancher/rke2"
+    ]
+  },
+  "obs": {
+    "instance": "https://build.opensuse.org",
+    "projects": [
+      { "name": "devel:languages:nodejs",    "priority": true,  "description": "Node.js packages (highest npm risk)" },
+      { "name": "devel:languages:python",    "priority": true,  "description": "Python packages (highest PyPI risk)" },
+      { "name": "devel:languages:python3",   "priority": true,  "description": "Python 3 packages" },
+      { "name": "openSUSE:Factory",          "priority": false, "description": "Main openSUSE distribution (18k+ packages)" },
+      { "name": "openSUSE:Tumbleweed",       "priority": false, "description": "Rolling release" },
+      { "name": "openSUSE:Leap:15.5",        "priority": false, "description": "Leap 15.5" },
+      { "name": "openSUSE:Leap:15.6",        "priority": false, "description": "Leap 15.6" },
+      { "name": "openSUSE:Leap:16.0",        "priority": false, "description": "Leap 16.0" },
+      { "name": "server:Rancher",            "priority": false, "description": "Rancher OBS packages (may require auth)" },
+      { "name": "Cloud:Tools",              "priority": false, "description": "Cloud tooling packages" },
+      { "name": "Virtualization:containers", "priority": false, "description": "Container-related packages" }
+    ]
+  }
+}

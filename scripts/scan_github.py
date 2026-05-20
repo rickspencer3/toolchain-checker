@@ -9,7 +9,28 @@ import requests
 import time
 import sys
 from typing import Dict, List, Set
-from datetime import datetime
+from datetime import datetime, timedelta
+from run_log import log, attack_label
+
+SAFETY_BUFFER_DAYS = 7
+
+def get_attack_start_date(attack: dict) -> datetime:
+    """Return the earliest date a package could have been compromised.
+
+    Prefers the actual attack time over the public discovery date, since
+    attacks are typically active for hours or days before being reported.
+    Falls back to discovered - SAFETY_BUFFER_DAYS when no attack time is known.
+    """
+    for field in ('attack_time', 'attack_window'):
+        value = attack.get(field, '')
+        if value:
+            try:
+                date_str = value.split()[0]  # "2026-05-11 19:20-..." -> "2026-05-11"
+                return datetime.strptime(date_str, '%Y-%m-%d')
+            except (ValueError, IndexError):
+                pass
+    discovered = datetime.strptime(attack['discovered'], '%Y-%m-%d')
+    return discovered - timedelta(days=SAFETY_BUFFER_DAYS)
 
 class GitHubScanner:
     def __init__(self, token=None):
@@ -23,9 +44,9 @@ class GitHubScanner:
         with open('scripts/compromised_packages.json', 'r') as f:
             data = json.load(f)
             self.compromised = data['attacks']
-            # Get earliest attack date for time filtering
-            attack_dates = [datetime.strptime(a['discovered'], '%Y-%m-%d') for a in data['attacks']]
-            self.attack_start_date = min(attack_dates)
+            # Use actual attack time (not discovery date) so repos compromised
+            # before the news broke are not skipped
+            self.attack_start_date = min(get_attack_start_date(a) for a in data['attacks'])
 
         # GitHub API base URL
         self.api_base = 'https://api.github.com'
@@ -173,16 +194,33 @@ class GitHubScanner:
                 if dep_type in data:
                     for pkg_name, version in data[dep_type].items():
                         for attack in self.compromised:
-                            if attack['ecosystem'] == 'npm' and attack['package_name'] == pkg_name:
-                                # Check if version matches malicious versions
-                                for mal_ver in attack['malicious_versions']:
-                                    if mal_ver in str(version):
-                                        findings.append({
-                                            'package': pkg_name,
-                                            'version': version,
-                                            'malicious_version': mal_ver,
-                                            'attack': attack
-                                        })
+                            if attack['ecosystem'] != 'npm':
+                                continue
+
+                            # Handle old format (package_name + malicious_versions)
+                            if 'package_name' in attack:
+                                if attack['package_name'] == pkg_name:
+                                    for mal_ver in attack['malicious_versions']:
+                                        if mal_ver in str(version):
+                                            findings.append({
+                                                'package': pkg_name,
+                                                'version': version,
+                                                'malicious_version': mal_ver,
+                                                'attack': attack
+                                            })
+
+                            # Handle new format (package_scope + packages dict)
+                            elif 'packages' in attack:
+                                if pkg_name in attack['packages']:
+                                    malicious_versions = attack['packages'][pkg_name]
+                                    for mal_ver in malicious_versions:
+                                        if mal_ver in str(version):
+                                            findings.append({
+                                                'package': pkg_name,
+                                                'version': version,
+                                                'malicious_version': mal_ver,
+                                                'attack': attack
+                                            })
         except:
             pass
 
@@ -320,6 +358,8 @@ def main():
     print(f"Started at: {datetime.now().isoformat()}")
     print(f"=" * 60)
 
+    log('RUN_START', 'GitHub scan initiated')
+
     # Check for GitHub token
     token = None
     try:
@@ -332,8 +372,14 @@ def main():
     scanner = GitHubScanner(token)
     scanner.check_rate_limit()
 
-    # Organizations to scan
-    orgs = ['SUSE', 'rancher', 'SUSE-Rancher-Community', 'rancher-sandbox', 'openSUSE']
+    for attack in scanner.compromised:
+        log('ATTACK', attack_label(attack))
+
+    # Organizations to scan (loaded from scan_targets.json)
+    with open('scripts/scan_targets.json', 'r') as f:
+        targets = json.load(f)
+    orgs = ([o['name'] for o in targets['github']['orgs'] if o.get('priority')]
+            + [o['name'] for o in targets['github']['orgs'] if not o.get('priority')])
 
     # Create output filename at start
     output_file = f'reports/github_scan_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
@@ -352,9 +398,18 @@ def main():
             json.dump(all_results, f, indent=2)
         print(f"Progress saved to {output_file}")
 
+    all_repo_results = [r for v in all_results.values() if isinstance(v, list) for r in v]
+    total = len(all_repo_results)
+    compromised_count = sum(1 for r in all_repo_results if r.get('status') == 'COMPROMISED')
+
     print(f"\n{'='*60}")
     print(f"Scan complete! Results saved to {output_file}")
     print(f"Finished at: {datetime.now().isoformat()}")
+
+    if compromised_count:
+        log('COMPROMISED', f"GitHub: {total} repos scanned, {compromised_count} COMPROMISED → {output_file}")
+    else:
+        log('CLEAN', f"GitHub: {total} repos scanned, 0 compromised → {output_file}")
 
 if __name__ == '__main__':
     main()
