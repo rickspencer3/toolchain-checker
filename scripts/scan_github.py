@@ -10,6 +10,7 @@ import time
 import sys
 from typing import Dict, List, Set
 from datetime import datetime, timedelta
+from run_log import log, attack_label
 
 SAFETY_BUFFER_DAYS = 7
 
@@ -357,6 +358,8 @@ def main():
     print(f"Started at: {datetime.now().isoformat()}")
     print(f"=" * 60)
 
+    log('RUN_START', 'GitHub scan initiated')
+
     # Check for GitHub token
     token = None
     try:
@@ -368,6 +371,9 @@ def main():
 
     scanner = GitHubScanner(token)
     scanner.check_rate_limit()
+
+    for attack in scanner.compromised:
+        log('ATTACK', attack_label(attack))
 
     # Organizations to scan (loaded from scan_targets.json)
     with open('scripts/scan_targets.json', 'r') as f:
@@ -392,9 +398,18 @@ def main():
             json.dump(all_results, f, indent=2)
         print(f"Progress saved to {output_file}")
 
+    all_repo_results = [r for v in all_results.values() if isinstance(v, list) for r in v]
+    total = len(all_repo_results)
+    compromised_count = sum(1 for r in all_repo_results if r.get('status') == 'COMPROMISED')
+
     print(f"\n{'='*60}")
     print(f"Scan complete! Results saved to {output_file}")
     print(f"Finished at: {datetime.now().isoformat()}")
+
+    if compromised_count:
+        log('COMPROMISED', f"GitHub: {total} repos scanned, {compromised_count} COMPROMISED → {output_file}")
+    else:
+        log('CLEAN', f"GitHub: {total} repos scanned, 0 compromised → {output_file}")
 
 if __name__ == '__main__':
     main()

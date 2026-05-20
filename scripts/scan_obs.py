@@ -10,6 +10,7 @@ import time
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Set
 from datetime import datetime, timedelta
+from run_log import log, attack_label
 
 SAFETY_BUFFER_DAYS = 7
 
@@ -265,7 +266,12 @@ def main():
     print(f"Started at: {datetime.now().isoformat()}")
     print(f"=" * 70)
 
+    log('RUN_START', 'OBS comprehensive scan initiated')
+
     scanner = OBSComprehensiveScanner()
+
+    for attack in scanner.compromised:
+        log('ATTACK', attack_label(attack))
 
     print(f"\nAttack Discovery Date: {scanner.attack_start_date.strftime('%Y-%m-%d')}")
     print(f"Scanning SUSE-responsible projects for updates since that date")
@@ -302,6 +308,11 @@ def main():
     print(f"Compromised packages: {compromised}")
     print(f"Results saved to: {output_file}")
     print(f"Finished at: {datetime.now().isoformat()}")
+
+    if compromised:
+        log('COMPROMISED', f"OBS: {total_packages} packages scanned, {compromised} COMPROMISED → {output_file}")
+    else:
+        log('CLEAN', f"OBS: {total_packages} packages scanned, 0 compromised → {output_file}")
 
 if __name__ == '__main__':
     main()
