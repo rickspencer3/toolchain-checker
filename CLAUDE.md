@@ -2,6 +2,8 @@ PURPOSE: Your purpose is to check if SUSE code repositories in github and OBS to
 
 # Setup
  * if you want to write and maintain code, please put that the ./scripts directory, creating it if necessary. Prefer Python as the language, but if another programming language works better for your use case, that is fine
+ * **Default to the generic scanners** (`scripts/scan_github.py` and `scripts/scan_obs.py`) for all routine scans. Only create a specialized scanner when the attack has characteristics the generic scanners cannot handle — for example: persistence hook detection, build-chain analysis, or a package ecosystem not yet supported
+ * Specialized scanners go in `./scripts/specialized/`. Generic scanners and shared config stay in `./scripts/`
  * please create a timestamp log of everything you do, and put that log in the ./log directory, creating it if necessary
  * create a report, name it report.txt and put it into the ./reports directory, again, creating it if necessary 
  * In subsequent runs I will be scheduling this to be run and alert me for new toolchain attacks
@@ -74,29 +76,31 @@ PURPOSE: Your purpose is to check if SUSE code repositories in github and OBS to
    - Safe version: ≤2.6.1
 
 ### Tools Created
-- `scripts/scan_pytorch_attack.py` - **SPECIALIZED** - PyTorch Lightning attack scanner
-  - Scans requirements.txt for pytorch-lightning 2.6.2/2.6.3
-  - Detects persistence hooks in .claude/ and .vscode/ directories
-  - Prioritizes AI repositories
-  - Checks multiple branches per repository
+
+**Generic scanners** (default — use these first):
 - `scripts/scan_github.py` - Scans GitHub repos for compromised packages (optimized with time/language filtering)
   - **Current language support**: JavaScript, TypeScript, Python (npm & PyPI ecosystems)
   - **Files checked**: `package.json`, `package-lock.json`, `requirements.txt`
   - **Not yet supported**: Go (`go.mod`), Rust (`Cargo.toml`), C/C++, Ruby, etc. - add on demand if attacks emerge
   - **Requires**: GitHub token in `.github_token` for full scans (5000 req/hr vs 60 req/hr)
-- `scripts/scan_build_chain.py` - **NEW** - Scans entire build chain for package usage
+- `scripts/scan_obs.py` - Scans OBS packages updated since attack date (time-filtered)
+- `scripts/scan_obs_quick.py` - Quick scanner using OBS RSS feed for packages updated in last 24 hours
+- `scripts/scan_targets.json` - Authoritative list of GitHub orgs, priority repos, and OBS projects to scan
+- `scripts/compromised_packages.json` - Database of compromised packages (reads attack dates dynamically)
+
+**Specialized scanners** (`scripts/specialized/` — only use when generic scanners are insufficient):
+- `scripts/specialized/scan_pytorch_attack.py` - PyTorch Lightning attack scanner
+  - Scans requirements.txt for pytorch-lightning 2.6.2/2.6.3
+  - Detects persistence hooks in .claude/ and .vscode/ directories
+- `scripts/specialized/scan_tanstack.py` - TanStack/Mini Shai-Hulud attack scanner
+  - Uses GitHub code search API to find package usage across all code (not just dependency files)
+- `scripts/specialized/scan_build_chain.py` - Scans entire build chain for package usage
   - Checks: GitHub Actions workflows, Dockerfiles, CI configs, shell scripts, nested package.json
   - Use case: Verify if a package is used in build/CI processes (not just dependencies)
-  - Example: Confirmed Bitwarden CLI is not used anywhere in SUSE build infrastructure
   - **Requires**: GitHub token in `.github_token`
-- `scripts/scan_obs.py` - **RECOMMENDED** - Scans OBS packages updated since attack date (time-filtered)
-- `scripts/scan_obs_quick.py` - Quick scanner using OBS RSS feed for packages updated in last 24 hours
-- `scripts/check_bitwarden.py` - Smart risk assessment tool (works without GitHub token)
-  - Analyzes cached scan results to identify high-risk repos
-  - Workaround for rate-limited environments
-- `scripts/check_bitwarden_usage.py` - Checks if Bitwarden appears in package.json (any version)
-- `scripts/compromised_packages.json` - Database of compromised packages (reads attack dates dynamically)
-- `scripts/github_orgs.json` - List of SUSE GitHub organizations
+- `scripts/specialized/check_bitwarden.py` - Bitwarden risk assessment (works without GitHub token)
+- `scripts/specialized/check_bitwarden_usage.py` - Checks if Bitwarden appears in package.json (any version)
+- `scripts/specialized/scan_suse_registry.py` - SUSE container registry scanner
 
 ### Scan Status (2026-04-23 12:30 PM) - ✅ COMPLETE
 
@@ -282,7 +286,7 @@ All container images at registry.suse.com are covered by our GitHub org scans.
    - Package quarantined by PyPI administrators
 
 ### Tools Created
-- `scripts/scan_pytorch_attack.py` - Specialized scanner for pytorch-lightning attack
+- `scripts/specialized/scan_pytorch_attack.py` - Specialized scanner for pytorch-lightning attack
   - Scans requirements.txt for malicious versions
   - Detects persistence hooks in .claude/ and .vscode/ directories
   - Prioritizes SUSE AI repositories
@@ -406,7 +410,7 @@ All container images at registry.suse.com are covered by our GitHub org scans.
 - Shell scripts (`npx @package`)
 - CI/CD configs (GitLab CI, CircleCI, etc.)
 
-**Solution:** Created `scripts/scan_build_chain.py` to comprehensively check build infrastructure
+**Solution:** Created `scripts/specialized/scan_build_chain.py` to comprehensively check build infrastructure
 
 **When to use:**
 - Developer tools that are typically installed globally (like Bitwarden CLI)

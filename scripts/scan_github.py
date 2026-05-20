@@ -9,7 +9,27 @@ import requests
 import time
 import sys
 from typing import Dict, List, Set
-from datetime import datetime
+from datetime import datetime, timedelta
+
+SAFETY_BUFFER_DAYS = 7
+
+def get_attack_start_date(attack: dict) -> datetime:
+    """Return the earliest date a package could have been compromised.
+
+    Prefers the actual attack time over the public discovery date, since
+    attacks are typically active for hours or days before being reported.
+    Falls back to discovered - SAFETY_BUFFER_DAYS when no attack time is known.
+    """
+    for field in ('attack_time', 'attack_window'):
+        value = attack.get(field, '')
+        if value:
+            try:
+                date_str = value.split()[0]  # "2026-05-11 19:20-..." -> "2026-05-11"
+                return datetime.strptime(date_str, '%Y-%m-%d')
+            except (ValueError, IndexError):
+                pass
+    discovered = datetime.strptime(attack['discovered'], '%Y-%m-%d')
+    return discovered - timedelta(days=SAFETY_BUFFER_DAYS)
 
 class GitHubScanner:
     def __init__(self, token=None):
@@ -23,9 +43,9 @@ class GitHubScanner:
         with open('scripts/compromised_packages.json', 'r') as f:
             data = json.load(f)
             self.compromised = data['attacks']
-            # Get earliest attack date for time filtering
-            attack_dates = [datetime.strptime(a['discovered'], '%Y-%m-%d') for a in data['attacks']]
-            self.attack_start_date = min(attack_dates)
+            # Use actual attack time (not discovery date) so repos compromised
+            # before the news broke are not skipped
+            self.attack_start_date = min(get_attack_start_date(a) for a in data['attacks'])
 
         # GitHub API base URL
         self.api_base = 'https://api.github.com'
