@@ -144,19 +144,34 @@ class OBSComprehensiveScanner:
         findings = []
 
         for attack in self.compromised:
-            pkg_name = attack['package_name']
+            ecosystem = attack.get('ecosystem', '')
+            attack_type = attack.get('attack_type', '')
 
-            # Check if package is mentioned
-            if pkg_name in content or pkg_name.lower() in content.lower():
-                # Check for specific malicious versions
-                for mal_ver in attack['malicious_versions']:
-                    if mal_ver in content:
-                        findings.append({
-                            'package': pkg_name,
-                            'version': mal_ver,
-                            'ecosystem': attack['ecosystem'],
-                            'attack_type': attack['attack_type']
-                        })
+            # Single-package format: package_name + malicious_versions
+            if 'package_name' in attack:
+                pkg_name = attack['package_name']
+                if pkg_name in content or pkg_name.lower() in content.lower():
+                    for mal_ver in attack.get('malicious_versions', []):
+                        if mal_ver in content:
+                            findings.append({
+                                'package': pkg_name,
+                                'version': mal_ver,
+                                'ecosystem': ecosystem,
+                                'attack_type': attack_type
+                            })
+
+            # Multi-package format: packages dict {name: [versions]}
+            elif 'packages' in attack:
+                for pkg_name, mal_versions in attack['packages'].items():
+                    if pkg_name in content:
+                        for mal_ver in mal_versions:
+                            if mal_ver in content:
+                                findings.append({
+                                    'package': pkg_name,
+                                    'version': mal_ver,
+                                    'ecosystem': ecosystem,
+                                    'attack_type': attack_type
+                                })
 
         return findings
 
